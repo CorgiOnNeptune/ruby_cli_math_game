@@ -23,17 +23,19 @@ class GameState
     @turn = (@turn == 1 ? 2 : 1)
   end
 
-  def determine_winner
-    winner = (@player1.lives.zero? ? @player2 : @player1)
-
-    puts "#{winner.name} is the winner with #{winner.lives}/3 lives remaining!"
-  end
-
   def end_game
     puts "\n----- GAME OVER -----"
     determine_winner
 
     puts 'GG!'
     @ended = true
+  end
+
+  private
+
+  def determine_winner
+    winner = (@player1.lives.zero? ? @player2 : @player1)
+
+    puts "#{winner.name} is the winner with #{winner.lives}/3 lives remaining!"
   end
 end
