@@ -1,13 +1,17 @@
 class Player
-  attr_accessor :player
-  attr_reader :score
+  attr_accessor :name
+  attr_reader :lives
 
-  def initialize(player)
-    @player = player
-    @score = 0
+  def initialize
+    @name = determine_player_name
+    @lives = 3
   end
 
-  def increase_score
-    score + 1
+  def determine_player_name
+    @name = gets.chomp
+  end
+
+  def lose_life
+    @lives -= 1
   end
 end
