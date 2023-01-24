@@ -1,5 +1,6 @@
 class GameState
-  attr_accessor :turn, :ended
+  attr_accessor :turn
+  attr_reader :ended
 
   def initialize(player1, player2)
     @turn = 1
@@ -14,11 +15,7 @@ class GameState
   end
 
   def current_player
-    if @turn == 1
-      @player1
-    else
-      @player2
-    end
+    @turn == 1 ? @player1 : @player2
   end
 
   def next_turn
