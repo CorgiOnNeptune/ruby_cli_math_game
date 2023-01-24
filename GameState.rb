@@ -27,11 +27,9 @@ class GameState
   end
 
   def determine_winner
-    if @player1.lives.zero?
-      puts "#{@player2.name} is the winner with #{@player2.lives}/3 lives remaining!"
-    elsif @player2.lives.zero?
-      puts "#{@player1.name} is the winner with #{@player1.lives}/3 lives remaining!"
-    end
+    winner = (@player1.lives.zero? ? @player2 : @player1)
+
+    puts "#{winner.name} is the winner with #{winner.lives}/3 lives remaining!"
   end
 
   def end_game
